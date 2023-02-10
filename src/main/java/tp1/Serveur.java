@@ -73,7 +73,7 @@ public class Serveur {
 				command = input.readUTF();
 				commandToken = new StringTokenizer(command, ":");
 				if (commandToken.countTokens() != 2) {
-					deconnecterClient("ERROR:Commande non reconnue, référez-vous au manuel");
+					deconnecterClient("ERROR:Commande non reconnue, référez-vous à Manuel");
 					continue;
 				}
 				tokenCommand = commandToken.nextToken();
