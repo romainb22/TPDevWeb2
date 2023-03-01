@@ -37,11 +37,23 @@ public class Client {
 			byte[] buffer = new byte[4*1024];
 			long fileSize;
 			int bytes = 0;
+			boolean continued = false;
 			clientSocket = new Socket(host, port);
 			input = new DataInputStream(clientSocket.getInputStream());
 			output = new DataOutputStream(clientSocket.getOutputStream());
 			System.out.println(input.readUTF());
+			//while (!continued) {
+				System.out.println(input.readUTF());
+				output.writeUTF(in.nextLine());
+				System.out.println(input.readUTF());
+				output.writeUTF(in.nextLine());
+				System.out.println(input.readUTF());
+				output.writeUTF(in.nextLine());
+			//	continued = input.readBoolean();
+			//}
+			System.out.println(input.readUTF());
 			command = in.nextLine();
+
 			output.writeUTF(command);
 			response = input.readUTF();
 			responseToken = new StringTokenizer(response, ":");
